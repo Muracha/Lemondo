@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Author";
+}
+@model AuthorModel
+<html>
+<head>
+    <title>Author</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Details</h1>
+
+    <form asp-action="Update" asp-controller="Author" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>@Model.Id</td>
+                    <input type="hidden" asp-for="@Model.Id" />
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" asp-for="@Model.FirstName" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" asp-for="@Model.LastName" /></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="text" asp-for="@Model.DateOfBirth" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Update</button>
+    </form>
+    <form asp-action="Delete" asp-controller="Author" method="post">
+        <input type="hidden" asp-for="@Model.Id" />
+        <button type="submit">Delete</button>
+    </form>
+    <a asp-action="Index" asp-controller="Author">Back to List</a>
+</body>
+</html>

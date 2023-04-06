@@ -1,0 +1,36 @@
+﻿@model AuthorModel
+<html>
+<head>
+    <title>Add Author</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Add Author</h1>
+    <form asp-action="Create" asp-controller="Author" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" asp-for="@Model.FirstName" /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" asp-for="@Model.LastName" /></td>
+                </tr>
+                <tr>
+                    <td>Date of Birth</td>
+                    <td><input type="text" asp-for="@Model.DateOfBirth" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Create</button>
+    </form>
+    <a asp-action="Index" asp-controller="Author">Back to List</a>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Books";
+}
+@model BookModel
+<html>
+<head>
+    <title>Book</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Details</h1>
+    <form asp-action="Update" asp-controller="Book" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID</td>
+                    <td>@Model.Id</td>
+                    <input type="hidden" asp-for="@Model.Id" />
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" asp-for="@Model.Title" /></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" asp-for="@Model.Description" /></td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td><input type="text" asp-for="@Model.Rating" /></td>
+                </tr>
+                <tr>
+                    <td>IsTaken</td>
+                    <td><input type="text" asp-for="@Model.IsTaken" /></td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td><input type="image" asp-for="@Model.Photo" /></td>
+                </tr>
+                <tr>
+                    <td>Release Date</td>
+                    <td><input type="text" asp-for="@Model.ReleaseDate" /></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" asp-for="@Model.Authors" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Update</button>
+    </form>
+        <form asp-action="Delete" asp-controller="Book" method="post">
+            <input type="hidden" asp-for="@Model.Id" />
+            <button type="submit">Delete</button>
+        </form>
+        <form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Authors</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Authors)
+                {
+                    <tr>
+                        <td>ID</td>
+                        <td>@item.Id</td>
+                        <td>Name</td>
+                        <td>@item.FullName</td>
+                        <td><a asp-action="DeleteAuthor" asp-route-bookId="@Model.Id" asp-route-authorId="@item.Id" asp-controller="Book">Delete Author</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+    <form asp-action="AddAuthor" asp-controller="Book" method="post">
+        <div class="form-group">
+            <input type="hidden" name="bookId" value="@Model.Id" />
+            <input type="text" class="form-control" id="authorId" name="authorId">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Author</button>
+    </form>
+    <a asp-action="Index" asp-controller="Book">Back to List</a>
+</body>
+</html>

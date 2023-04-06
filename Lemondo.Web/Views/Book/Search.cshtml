@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Authors";
+}
+@model List<BookModel>
+<html>
+<head>
+    <title>Books</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <form method="get" asp-action="Search" asp-controller="Book">
+        <div class="form-group">
+            <label for="searchTerm">Search:</label>
+            <input type="text" class="form-control" id="searchTerm" name="searchTerm">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th><a asp-action="CreateView" asp-controller="Author" class="btn btn-primary">Create New</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>
+                        @foreach (var author in book.Authors)
+                        {
+                            <p>@author.FullName</p>
+                        }
+                    </td>
+                    <td><a asp-action="Details" asp-route-id="@book.Id" asp-controller="Book">View Details</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Index" asp-controller="Book">Back to List</a>
+</body>
+</html>

@@ -1,0 +1,13 @@
+global using Xunit;
+global using Lemondo.Facade.RepositoryInterfaces;
+global using Lemondo.Facade.ServiceInterfaces;
+global using Lemondo.Repository;
+global using Lemondo.Repository.Database;
+global using Lemondo.Service;
+global using Lemondo.Domain;
+global using Lemondo.Test.DatabaseConfiguration;
+global using Lemondo.Test.Extensions;
+global using Lemondo.Domain.Interfaces;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;

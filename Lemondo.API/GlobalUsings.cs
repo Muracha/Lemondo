@@ -1,0 +1,17 @@
+﻿global using Lemondo.API.Models;
+global using Lemondo.API.Extensions;
+global using Lemondo.API.AutoMapper;
+global using Lemondo.API.Middleware;
+global using Lemondo.Facade.RepositoryInterfaces;
+global using Lemondo.Facade.ServiceInterfaces;
+global using Lemondo.Repository;
+global using Lemondo.Repository.Database;
+global using Lemondo.Service;
+global using Lemondo.Domain;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using Serilog;
+global using OpenQA.Selenium;
+global using System.Net;
+global using AutoMapper;
+global using System.Text.Json.Serialization;

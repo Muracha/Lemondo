@@ -1,0 +1,44 @@
+﻿@model BookModel
+<html>
+<head>
+    <title>Add Book</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Add Book</h1>
+    <form asp-action="Create" asp-controller="Book" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" asp-for="@Model.Title" /></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><input type="text" asp-for="@Model.Description" /></td>
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td><input type="text" asp-for="@Model.Rating" /></td>
+                </tr>
+                <tr>
+                    <td>Taken</td>
+                    <td><input type="text" asp-for="@Model.IsTaken" /></td>
+                </tr>
+                <tr>
+                    <td>Release Date</td>
+                    <td><input type="text" asp-for="@Model.ReleaseDate" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit">Create</button>
+    </form>
+    <a asp-action="Index" asp-controller="Book">Back to List</a>
+</body>
+</html>
